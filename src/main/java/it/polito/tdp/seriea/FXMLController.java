@@ -55,11 +55,16 @@ public class FXMLController {
     	this.txtResult.appendText("GRAFO CREATO \n");
     	this.txtResult.appendText("NUMERO ARCHI: "+this.model.getNArchi()+"\n");
     	this.txtResult.appendText("NUMERO VERTICI: "+this.model.getNVertici()+"\n");
+    	this.txtResult.appendText("ANNATA ORO "+this.model.getAnnataOro(t).getPunteggi()+" "+this.model.getAnnataOro(t).getStagione()+"\n");
     }
 
     @FXML
     void doTrovaCamminoVirtuoso(ActionEvent event) {
 
+    	Team t = this.boxSquadra.getValue();
+    	List <Integer> perc = this.model.getPercorso(t);
+    	for (Integer i : perc)
+    		this.txtResult.appendText(i+"\n");
     }
 
     @FXML
